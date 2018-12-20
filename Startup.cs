@@ -9,6 +9,8 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using newsapp.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace newsapp
 {
@@ -33,6 +35,8 @@ namespace newsapp
 
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            var connection = "Data Source=newsapp.db";
+            services.AddDbContext<NewsAppDbContext>(options => options.UseSqlite(connection));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
