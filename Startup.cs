@@ -11,6 +11,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using newsapp.Models;
 using Microsoft.EntityFrameworkCore;
+using newsapp.Helpers;
 
 namespace newsapp
 {
@@ -37,6 +38,8 @@ namespace newsapp
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
             var connection = "Data Source=newsapp.db";
             services.AddDbContext<NewsAppDbContext>(options => options.UseSqlite(connection));
+
+            services.AddTransient<INewsHelper, NewsHelper>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -57,7 +60,12 @@ namespace newsapp
             app.UseStaticFiles();
             app.UseCookiePolicy();
 
-            app.UseMvc();
+            app.UseMvc(routes => {
+                routes.MapRoute(
+                    name: "default",
+                    template: "{controller=Home}/{action=Index}/{id?}"
+                );
+            });
         }
     }
 }
