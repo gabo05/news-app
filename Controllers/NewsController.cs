@@ -16,8 +16,13 @@ namespace newsapp.Controllers{
         public IEnumerable<ArticleViewModel> Search(SearchViewModel search){
             return Helper.Search(search);
         }
-        public SearchViewModel Search2(SearchViewModel search){
-            return search;
+        public IActionResult Index(){
+            return View();
+        }
+        public IActionResult Article(int id){
+            var model = Helper.GetById(id);
+
+            return View(model);
         }
     }
 }

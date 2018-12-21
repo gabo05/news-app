@@ -1,0 +1,16 @@
+.card{
+    width: 18rem;
+    margin-bottom: 15px;
+}
+.card img{
+    height: 128px;
+}
+.card .card-text {
+    height: 72px;
+    overflow: hidden;
+    white-space: unset;
+    text-overflow: ellipsis;
+}
+.card-title{
+    min-height: 48px;
+}

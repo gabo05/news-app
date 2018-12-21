@@ -63,7 +63,7 @@ namespace newsapp
             app.UseMvc(routes => {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}"
+                    template: "{controller=News}/{action=Index}/{id?}"
                 );
             });
         }
