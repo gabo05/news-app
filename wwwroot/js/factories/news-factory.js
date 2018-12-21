@@ -15,9 +15,9 @@
                     });
                 });
             },
-            search: (search) => {
-                return new Promise((response, reject)=>{
-                    return $http.get('News/Search', search)
+            search: (s) => {
+                return new Promise((resolve, reject)=>{
+                    return $http.get('/News/Find', {params: s})
                     .then((response) => {
                         if(response.status === 200)
                             resolve(response.data);

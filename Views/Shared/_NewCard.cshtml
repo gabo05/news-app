@@ -1,0 +1,10 @@
+<div class="col-6" ng-repeat="fnew in news">
+    <div class="card">
+        <img class="card-img-top" ng-src="{{fnew.image}}" alt="{{fnew.title}}">
+        <div class="card-body">
+            <h5 class="card-title"><a ng-href="News/Article/{{fnew.id}}">{{fnew.title}}</a></h5>
+            <div ng-bind-html="fnew.content" class="card-text"></div>
+            <a ng-href="/News/Article/{{fnew.id}}" class="btn btn-primary">Leer M&aacute;s</a>
+        </div>
+    </div>
+</div>

@@ -13,10 +13,13 @@ namespace newsapp.Controllers{
         public IEnumerable<ArticleViewModel> Featured(int id = 3){
             return Helper.GetFeaturedNews(id);
         }
-        public IEnumerable<ArticleViewModel> Search(SearchViewModel search){
+        public IEnumerable<ArticleViewModel> Find(SearchViewModel search){
             return Helper.Search(search);
         }
         public IActionResult Index(){
+            return View();
+        }
+        public IActionResult Search(){
             return View();
         }
         public IActionResult Article(int id){
